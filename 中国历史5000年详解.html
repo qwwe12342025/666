@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华夏五千年 | 手绘艺术风格历史长卷</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f8f3e6;
+            --ink: #2a2118;
+            --vermilion: #e34234;
+            --celadon: #b8d8be;
+            --gold-leaf: #d4af37;
+            --shadow: rgba(0,0,0,0.1);
+        }
+        
+        @font-face {
+            font-family: 'Handwriting';
+            src: url('https://s2.ssl.qhres2.com/static/fonts/handwriting.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'Handwriting', 'STKaiti', serif;
+            background-color: var(--parchment);
+            color: var(--ink);
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+            background-image: url('https://s2.ssl.qhres2.com/static/images/paper-texture.png');
+            background-attachment: fixed;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--vermilion);
+            text-shadow: 3px 3px 0 var(--shadow);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vermilion), var(--gold-leaf), transparent);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--ink);
+            opacity: 0.8;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold-leaf), var(--vermilion));
+            border-radius: 2px;
+        }
+        
+        .era {
+            position: relative;
+            margin-bottom: 4rem;
+            width: calc(50% - 4rem);
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .era:hover {
+            transform: translateY(-5px);
+        }
+        
+        .era:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .era:nth-child(even) {
+            margin-right: auto;
+        }
+        
+        .era-title {
+            font-size: 2rem;
+            color: var(--vermilion);
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed var(--gold-leaf);
+            padding-bottom: 0.5rem;
+        }
+        
+        .era-period {
+            font-style: italic;
+            color: var(--ink);
+            opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+        
+        .era-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .era::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--gold-leaf);
+            top: 30px;
+            z-index: 1;
+        }
+        
+        .era:nth-child(odd)::before {
+            left: -30px;
+        }
+        
+        .era:nth-child(even)::before {
+            right: -30px;
+        }
+        
+        .hand-drawn-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('https://s2.ssl.qhres2.com/static/images/hand-drawn-border.png');
+            background-size: 100% 100%;
+            opacity: 0.3;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--ink);
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .era {
+                width: 100%;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .era::before {
+                display: none;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hand-drawn-border"></div>
+    <div class="container">
+        <header>
+            <h1 class="title">华夏五千年</h1>
+            <p class="subtitle">Une histoire visuelle de la civilisation chinoise</p>
+        </header>
+        
+        <div class="timeline">
+            <!-- 史前时期 -->
+            <div class="era">
+                <h2 class="era-title">史前文明</h2>
+                <p class="era-period">约公元前5000年 - 公元前2070年</p>
+                <div class="era-content">
+                    <p>中国文明的曙光最早出现在黄河流域。考古发现表明，新石器时代的仰韶文化和龙山文化已展现出高度发达的制陶技术和原始农业。神话传说中，伏羲画八卦、神农尝百草、黄帝制衣冠，奠定了中华文明的基础。</p>
+                </div>
+            </div>
+            
+            <!-- 夏商周 -->
+            <div class="era">
+                <h2 class="era-title">三代时期</h2>
+                <p class="era-period">约公元前2070年 - 公元前256年</p>
+                <div class="era-content">
+                    <p>夏朝是中国历史上第一个王朝，虽然考古证据仍有争议。商朝创造了灿烂的青铜文明，甲骨文是已知最早的成熟汉字系统。西周建立封建制度，制定礼乐，形成"普天之下，莫非王土"的大一统观念。</p>
+                </div>
+            </div>
+            
+            <!-- 秦汉 -->
+            <div class="era">
+                <h2 class="era-title">帝国奠基</h2>
+                <p class="era-period">公元前221年 - 公元220年</p>
+                <div class="era-content">
+                    <p>秦始皇统一六国，建立中央集权制度，统一文字、货币、度量衡。汉武帝开拓疆土，确立儒家思想的正统地位。汉朝开辟丝绸之路，连接东西方文明，使"汉"成为中华民族的代名词。</p>
+                </div>
+            </div>
+            
+            <!-- 魏晋南北朝 -->
+            <div class="era">
+                <h2 class="era-title">分裂与融合</h2>
+                <p class="era-period">220年 - 589年</p>
+                <div class="era-content">
+                    <p>三国鼎立，英雄辈出。五胡乱华导致北方民族大融合，北魏孝文帝推行汉化改革。南方六朝文化繁荣，山水诗、骈文、书法艺术达到高峰。佛教广泛传播，与中国传统文化深度交融。</p>
+                </div>
+            </div>
+            
+            <!-- 隋唐 -->
+            <div class="era">
+                <h2 class="era-title">盛世华章</h2>
+                <p class="era-period">581年 - 907年</p>
+                <div class="era-content">
+                    <p>隋朝开凿大运河，唐朝开创贞观之治、开元盛世。长安成为国际大都市，诗歌艺术登峰造极。科举制度完善，三省六部制确立。佛教禅宗兴起，对外交流空前活跃，日本遣唐使频繁来华。</p>
+                </div>
+            </div>
+            
+            <!-- 宋元 -->
+            <div class="era">
+                <h2 class="era-title">变革与创新</h2>
+                <p class="era-period">960年 - 1368年</p>
+                <div class="era-content">
+                    <p>宋朝经济繁荣，商业革命兴起，活字印刷、火药、指南针等重大发明改变世界。程朱理学形成，山水画达到艺术巅峰。元朝建立横跨欧亚的大帝国，促进东西方文化交流，戏曲艺术蓬勃发展。</p>
+                </div>
+            </div>
+            
+            <!-- 明清 -->
+            <div class="era">
+                <h2 class="era-title">帝国余晖</h2>
+                <p class="era-period">1368年 - 1840年</p>
+                <div class="era-content">
+                    <p>明朝郑和七下西洋，编纂《永乐大典》。清朝康乾盛世疆域辽阔，编纂《四库全书》。但闭关锁国政策导致中国逐渐落后于西方。与此同时，小说创作繁荣，《红楼梦》等名著问世。</p>
+                </div>
+            </div>
+            
+            <!-- 近现代 -->
+            <div class="era">
+                <h2 class="era-title">复兴之路</h2>
+                <p class="era-period">1840年 - 至今</p>
+                <div class="era-content">
+                    <p>鸦片战争后，中国逐步沦为半殖民地。辛亥革命推翻帝制，五四运动唤醒民族意识。抗日战争胜利，新中国成立。改革开放使中国经济腾飞，文化复兴，科技创新，正以崭新姿态重返世界舞台中心。</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 华夏文明研究院 | 手绘艺术历史项目组</p>
+            <p>L'histoire est un roman qui a été, le roman est de l'histoire qui aurait pu être.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 添加微妙的交互效果 
+        document.querySelectorAll('.era').forEach(era => {
+            era.addEventListener('mouseenter', () => {
+                era.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+            });
+            
+            era.addEventListener('mouseleave', () => {
+                era.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+        
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            const eras = document.querySelectorAll('.era');
+            eras.forEach((era, index) => {
+                setTimeout(() => {
+                    era.style.opacity = '1';
+                    era.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
